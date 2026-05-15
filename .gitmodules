@@ -1,0 +1,10 @@
+# git submodule add https://github.com/anomalyco/models.dev.git repos/models.dev
+# git submodule add https://github.com/lobehub/lobe-icons.git repos/lobe-icons
+# git rm -r --cached repos/models.dev
+# git rm -r --cached repos/lobe-icons
+[submodule "repos/models.dev"]
+	path = repos/models.dev
+	url = https://github.com/anomalyco/models.dev.git
+[submodule "repos/lobe-icons"]
+	path = repos/lobe-icons
+	url = https://github.com/lobehub/lobe-icons.git

@@ -1,0 +1,63 @@
+{
+  "name": "llmicons",
+  "version": "1.0.0",
+  "description": "LLM Icons - Icon collection for language models",
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/fn-a/llmicons",
+  "bugs": "https://github.com/fn-a/llmicons/issues",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.js",
+      "import": "./index.mjs"
+    },
+    "./lobe": {
+      "types": "./icons/lobe/index.d.ts",
+      "require": "./icons/lobe/index.js",
+      "import": "./icons/lobe/index.mjs"
+    },
+    "./lobe/*": "./icons/lobe/*",
+    "./mdev": {
+      "types": "./icons/mdev/index.d.ts",
+      "require": "./icons/mdev/index.js",
+      "import": "./icons/mdev/index.mjs"
+    },
+    "./mdev/*": "./icons/mdev/*"
+  },
+  "files": [
+    "icons/"
+  ],
+  "scripts": {
+    "build": "tsx build.ts",
+    "build:lobe": "tsx build.ts lobe",
+    "build:mdev": "tsx build.ts mdev",
+    "pullup": "git submodule update --remote --recursive repos/models.dev repos/lobe-icons",
+    "pullup:lobe": "git submodule update --remote --recursive repos/lobe-icons",
+    "pullup:mdev": "git submodule update --remote --recursive repos/models.dev",
+    "format": "prettier --write './*.{ts,js}' './board/**/*.{ts,js,css,json}'",
+    "chain": "pnpm run pullup && pnpm run build",
+    "board": "pnpm -F @llmicons/board run dev"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf"
+  },
+  "dependencies": {
+    "@iconify/tools": "^5.0.11"
+  },
+  "devDependencies": {
+    "@iconify/types": "^2.0.0",
+    "@types/node": "^25.7.0",
+    "prettier": "^3.8.3",
+    "tsx": "^4.7.0",
+    "typescript": "^6.0.3"
+  }
+}

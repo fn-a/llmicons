@@ -1,0 +1,29 @@
+{
+	"name": "@llmicons-json/lobe",
+	"description": "Lobehub Icons icon set in Iconify JSON format",
+	"version": "1.0.0",
+	"iconSetVersion": "1.90.0",
+	"main": "index.js",
+	"module": "index.mjs",
+	"types": "index.d.ts",
+	"homepage": "https://github.com/fn-a/llmicons",
+	"bugs": "https://github.com/fn-a/llmicons/issues",
+	"license": "MIT",
+	"exports": {
+		"./*": "./*",
+		".": {
+			"types": "./index.d.ts",
+			"require": "./index.js",
+			"import": "./index.mjs"
+		},
+		"./icons.json": "./icons.json",
+		"./info.json": "./info.json"
+	},
+	"iconSet": {
+		"icons": "icons.json",
+		"info": "info.json"
+	},
+	"dependencies": {
+		"@iconify/types": "*"
+	}
+}
