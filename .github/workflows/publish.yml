@@ -6,6 +6,7 @@ on:
       - 'v*'
       - 'lobe-v*'
       - 'mdev-v*'
+
   workflow_dispatch:
     inputs:
       package:
@@ -55,7 +56,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # ── 解析发布目标与版本策略 ──────────────────────────
       - name: Resolve publish targets
         id: resolve
         shell: bash
@@ -76,14 +76,11 @@ jobs:
           echo "package=$PACKAGE" >> "$GITHUB_OUTPUT"
           echo "bump=$BUMP" >> "$GITHUB_OUTPUT"
 
-      # ── 构建（workflow_dispatch 带版本升级，tag 触发不升级） ──
       - name: Build and publish
         shell: bash
         run: |
           PACKAGE="${{ steps.resolve.outputs.package }}"
           BUMP="${{ steps.resolve.outputs.bump }}"
-
-          # 构建命令
           CMD="echo 'Package: $PACKAGE'"
           if [[ "$PACKAGE" == "root" ]]; then
             if [[ -n "$BUMP" ]]; then
@@ -100,11 +97,9 @@ jobs:
               CMD="$CMD && cd icons/mdev && npm version $BUMP --no-git-tag-version"
             fi
           fi
-
           echo "Running: $CMD"
           eval "$CMD"
 
-      # ── 提交版本变更（仅 workflow_dispatch） ────────────
       - name: Commit version bump
         if: github.event_name == 'workflow_dispatch'
         shell: bash
@@ -132,7 +127,6 @@ jobs:
             git push
           fi
 
-      # ── 发布到 npm ─────────────────────────────────────
       - name: Publish @llmicons-json/lobe
         working-directory: ./icons/lobe
         run: npm publish --provenance --access public
@@ -153,7 +147,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: steps.resolve.outputs.package == 'root'
 
-      # ── 创建 Git Tag（仅 workflow_dispatch） ────────────
       - name: Create Git tag
         if: github.event_name == 'workflow_dispatch'
         shell: bash
