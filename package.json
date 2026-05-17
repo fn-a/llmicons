@@ -27,7 +27,9 @@
     "./mdev/*": "./icons/mdev/*"
   },
   "files": [
-    "icons/"
+    "icons/",
+    "docs/",
+    "build.ts"
   ],
   "scripts": {
     "build": "tsx build.ts",
