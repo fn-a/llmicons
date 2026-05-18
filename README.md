@@ -1,13 +1,13 @@
-[**中文**](README.zh.md) | **English**
+**English** | [**中文**](https://github.com/fn-a/llmicons/blob/master/README.zh.md) | 📦 [**npm**](https://www.npmjs.com/package/llmicons)
 
 # LLM Icons
 
 A curated collection of AI/LLM model brand icons, packaged in [Iconify](https://iconify.design/) JSON format for universal compatibility.
 
 <p align="center">
-  <img src="docs/brand_preview.png" alt="Brand Preview" width="45%" />
+  <img src="https://github.com/fn-a/llmicons/raw/master/docs/brand_preview.png" alt="Brand Preview" width="45%" />
   &nbsp;&nbsp;
-  <img src="docs/brand_search.png" alt="Brand Search" width="45%" />
+  <img src="https://github.com/fn-a/llmicons/raw/master/docs/brand_search.png" alt="Brand Search" width="45%" />
 </p>
 
 ## Icon Sets [ <img src="https://registry.npmmirror.com/@lobehub/assets-logo/1.2.0/files/assets/logo-3d.webp" height="20px" /> [Lobe Icons](https://icons.lobehub.com/), <img src="https://github.com/anomalyco/models.dev/raw/dev/logo-light.svg" width="120px" height="20px" />[Models.dev](https://models.dev/) ]
